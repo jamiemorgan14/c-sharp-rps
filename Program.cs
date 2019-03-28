@@ -17,7 +17,7 @@ namespace c_sharp_rps
         System.Console.WriteLine("Make your move: Enter rock, paper, or scissors to play! Enter 'exit' to be a quitter");
         string playerMove = Console.ReadLine().ToLower();
         int compMove = mathRandomTool.Next(1, 4);
-        //comp moves == 0: rock 1: scissors 2: paper
+        //comp moves == 1: rock 2: scissors 3: paper
 
 
         switch (playerMove)
