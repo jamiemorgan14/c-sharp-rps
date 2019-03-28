@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace c_sharp_rps
 {
@@ -11,6 +12,8 @@ namespace c_sharp_rps
       //define global vars and handle player moves and generate random computer moves
       bool playing = true;
       Random mathRandomTool = new Random();
+      int playerScore = 0;
+      int compScore = 0;
       while (playing)
       {
 
@@ -26,45 +29,51 @@ namespace c_sharp_rps
             System.Console.WriteLine("YOU PICKED ROCK!");
             if (compMove == 1)
             {
-              System.Console.WriteLine("The computer picked Rock, you've tied");
+              System.Console.WriteLine($"The computer picked Rock, you've tied. SCORE: YOU: {playerScore} COMPUTER: {compScore}");
             }
             else if (compMove == 2)
             {
-              System.Console.WriteLine("The computer picked Scissors, you win!");
+              playerScore++;
+              System.Console.WriteLine($"The computer picked Scissors, you win! SCORE: YOU: {playerScore} COMPUTER: {compScore}");
             }
             else
             {
-              System.Console.WriteLine("The computer picked Paper, you lose =(");
+              compScore++;
+              System.Console.WriteLine($"The computer picked Paper, you lose =( SCORE: YOU: {playerScore} COMPUTER: {compScore}");
             }
             break;
           case "scissors":
             System.Console.WriteLine("YOU PICKED SCISSORS!");
             if (compMove == 1)
             {
-              System.Console.WriteLine("The computer picked Rock, you lose =(");
+              compScore++;
+              System.Console.WriteLine($"The computer picked Rock, you lose =( SCORE: YOU: {playerScore} COMPUTER: {compScore}");
             }
             else if (compMove == 2)
             {
-              System.Console.WriteLine("The computer picked Scissors, you've tied!");
+              System.Console.WriteLine($"The computer picked Scissors, you've tied! SCORE: YOU: {playerScore} COMPUTER: {compScore}");
             }
             else
             {
-              System.Console.WriteLine("The computer picked Paper, you win!");
+              playerScore++;
+              System.Console.WriteLine($"The computer picked Paper, you win! SCORE: YOU: {playerScore} COMPUTER: {compScore}");
             }
             break;
           case "paper":
             System.Console.WriteLine("YOU PICKED PAPER!");
             if (compMove == 1)
             {
-              System.Console.WriteLine("The computer picked Rock, you win!");
+              playerScore++;
+              System.Console.WriteLine($"The computer picked Rock, you win! SCORE: YOU: {playerScore} COMPUTER: {compScore}");
             }
             else if (compMove == 2)
             {
-              System.Console.WriteLine("The computer picked Scissors, you lose =(");
+              compScore++;
+              System.Console.WriteLine($"The computer picked Scissors, you lose =( SCORE: YOU: {playerScore} COMPUTER: {compScore}");
             }
             else
             {
-              System.Console.WriteLine("The computer picked Paper, you've tied");
+              System.Console.WriteLine($"The computer picked Paper, you've tied SCORE: YOU: {playerScore} COMPUTER: {compScore}");
             }
             break;
           case "exit":
@@ -78,7 +87,7 @@ namespace c_sharp_rps
               continue;
             }
           default:
-            System.Console.WriteLine("Please enter 'rock', 'paper', or 'scissors'");
+            System.Console.WriteLine("Incorrect input... Please enter 'rock', 'paper', or 'scissors'");
             break;
         }
       }
